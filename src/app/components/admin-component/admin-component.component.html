@@ -1,0 +1,11 @@
+<form (ngSubmit)="onAddEmployee()">
+    <!-- Form fields for user attributes similar to employee-form -->
+    <button type="submit">Add Employee</button>
+  </form>
+  
+  <div *ngFor="let user of users">
+    <div>{{ user.firstName }} {{ user.lastName }}</div>
+    <button (click)="onDeleteEmployee(user.id)">Delete</button>
+    <button (click)="onApproveUpdate(user)">Approve Update</button>
+  </div>
+  

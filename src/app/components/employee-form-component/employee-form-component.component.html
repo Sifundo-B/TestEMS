@@ -1,0 +1,120 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <!-- Form fields for user attributes -->
+  <div>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" formControlName="firstName" />
+    <div *ngIf="employeeForm.get('firstName')?.invalid && employeeForm.get('firstName')?.touched">
+      First Name is required
+    </div>
+  </div>
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" formControlName="lastName" />
+    <div *ngIf="employeeForm.get('lastName')?.invalid && employeeForm.get('lastName')?.touched">
+      Last Name is required
+    </div>
+  </div>
+  <div>
+    <label for="dateOfBirth">Date of Birth:</label>
+    <input id="dateOfBirth" formControlName="dateOfBirth" type="date" />
+    <div *ngIf="employeeForm.get('dateOfBirth')?.invalid && employeeForm.get('dateOfBirth')?.touched">
+      Date of Birth is required and must be today or a future date
+    </div>
+  </div>
+  <div>
+    <label for="idNumber">ID Number:</label>
+    <input id="idNumber" formControlName="idNumber" />
+    <div *ngIf="employeeForm.get('idNumber')?.invalid && employeeForm.get('idNumber')?.touched">
+      ID Number is required and must be 13 digits
+    </div>
+  </div>
+  <div>
+    <label for="startDate">Start Date:</label>
+    <input id="startDate" formControlName="startDate" type="date" />
+    <div *ngIf="employeeForm.get('startDate')?.invalid && employeeForm.get('startDate')?.touched">
+      Start Date is required
+    </div>
+  </div>
+  <div>
+    <label for="address">Address:</label>
+    <input id="address" formControlName="address" />
+    <div *ngIf="employeeForm.get('address')?.invalid && employeeForm.get('address')?.touched">
+      Address is required
+    </div>
+  </div>
+  <div>
+    <label for="phoneNumber">Phone Number:</label>
+    <input id="phoneNumber" formControlName="phoneNumber" />
+    <div *ngIf="employeeForm.get('phoneNumber')?.invalid && employeeForm.get('phoneNumber')?.touched">
+      Phone Number is required
+    </div>
+  </div>
+  <div>
+    <label for="image">Image:</label>
+    <input id="image" formControlName="image" />
+    <div *ngIf="employeeForm.get('image')?.invalid && employeeForm.get('image')?.touched">
+      Image is required
+    </div>
+  </div>
+  <div>
+    <label for="gender">Gender:</label>
+    <input id="gender" formControlName="gender" />
+    <div *ngIf="employeeForm.get('gender')?.invalid && employeeForm.get('gender')?.touched">
+      Gender is required
+    </div>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" formControlName="password" type="password" />
+    <div *ngIf="employeeForm.get('password')?.invalid && employeeForm.get('password')?.touched">
+      Password is required
+    </div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" />
+    <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched">
+      Email is required and must be a valid email address
+    </div>
+  </div>
+  <div>
+    <label for="emergencyContactName">Emergency Contact Name:</label>
+    <input id="emergencyContactName" formControlName="emergencyContactName" />
+    <div *ngIf="employeeForm.get('emergencyContactName')?.invalid && employeeForm.get('emergencyContactName')?.touched">
+      Emergency Contact Name is required
+    </div>
+  </div>
+  <div>
+    <label for="emergencyContactRelationship">Emergency Contact Relationship:</label>
+    <input id="emergencyContactRelationship" formControlName="emergencyContactRelationship" />
+    <div *ngIf="employeeForm.get('emergencyContactRelationship')?.invalid && employeeForm.get('emergencyContactRelationship')?.touched">
+      Emergency Contact Relationship is required
+    </div>
+  </div>
+  <div>
+    <label for="emergencyContactNo">Emergency Contact No:</label>
+    <input id="emergencyContactNo" formControlName="emergencyContactNo" />
+    <div *ngIf="employeeForm.get('emergencyContactNo')?.invalid && employeeForm.get('emergencyContactNo')?.touched">
+      Emergency Contact No is required
+    </div>
+  </div>
+  <div>
+    <label for="department">Department:</label>
+    <select id="department" formControlName="department">
+      <option *ngFor="let dept of departments" [ngValue]="dept">{{dept.name}}</option>
+    </select>
+    <div *ngIf="employeeForm.get('department')?.invalid && employeeForm.get('department')?.touched">
+      Department is required
+    </div>
+  </div>
+  <div>
+    <label for="position">Position:</label>
+    <select id="position" formControlName="position">
+      <option *ngFor="let pos of positions" [ngValue]="pos">{{pos.title}}</option>
+    </select>
+    <div *ngIf="employeeForm.get('position')?.invalid && employeeForm.get('position')?.touched">
+      Position is required
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
